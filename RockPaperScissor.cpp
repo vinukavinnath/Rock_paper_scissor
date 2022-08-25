@@ -4,6 +4,11 @@
 
 using namespace std;
 
+char choice='0';
+int intchoice=0;
+int ran=0;
+
+
 void dashboard(){
     cout<<endl;
     cout.width(50);
@@ -22,15 +27,45 @@ void dashboard(){
 }
 
 void userinputs(){
+    cout<<"Enter your choice :- ";
+    cin>>choice;
 
 }
 
 void output(){
+    /*  1 = Rock
+        2 = Paper
+        3 = Scissor
+    */
+
+   srand(time(0));
+   ran= 1+(rand()%3);
+
+   if(choice=='r' || choice=='R'){
+        intchoice=1;
+   }
+   else if (choice=='p' || choice=='P'){
+        intchoice=2;
+   }else if(choice=='s' || choice=='S'){
+        intchoice=3;
+   }
+
+   if(intchoice==ran){
+    cout<<"Tied"<<endl;
+   }
+   else if((intchoice==1 && ran==3) || (intchoice==2 && ran==1) || (intchoice==3 && ran==2)){
+    cout<<"You won"<<endl;
+   }
+   else{
+    cout<<"You lose"<<endl;
+   }
 
 }
 
 int main(){
 
     dashboard();
+    userinputs();
+
     return 0;
 }

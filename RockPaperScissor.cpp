@@ -7,6 +7,7 @@ using namespace std;
 char choice='0';
 int intchoice=0;
 int ran=0;
+char rematch='0';
 
 
 void dashboard(){
@@ -29,7 +30,15 @@ void dashboard(){
 void userinputs(){
     cout<<"Enter your choice :- ";
     cin>>choice;
+    // do{
 
+    // if (choice!='r' ||choice!='R' ||choice!='p' ||choice!='P' ||choice!='s' ||choice!='S'){
+    //         cout<<"Invalid Input"<<endl;
+
+    //         cout<<"Enter your choice again :- ";
+    //         cin>>choice;
+    // }
+    // }while(choice!='r' ||choice!='R' ||choice!='p' ||choice!='P' ||choice!='s' ||choice!='S');
 }
 
 void output(){
@@ -65,7 +74,17 @@ void output(){
 int main(){
 
     dashboard();
-    userinputs();
+    
+
+    do{
+        userinputs();
+        output();
+
+        cout<<"You want to re-match? (y/n) :";
+        cin>>rematch;
+    }while(rematch=='y');
+
+    cout<<"Thank you for playing\nHave a nice Day!"<<endl;
 
     return 0;
 }
